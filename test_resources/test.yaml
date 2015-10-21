@@ -1,0 +1,26 @@
+rpt: Testung again
+nperm: 1000
+collapse: true
+permute: phenotype
+tool_id: sig_gsea_tool
+mode: Max_probe
+norm: meandiv
+rnd_type: no_balance
+scoring_scheme: weighted
+rpt_label: my_gsea_analysis
+metric: Signal2Noise
+sort: real
+order: descending
+include_only_symbols: true
+make_sets: true
+median: false
+num: 100
+plot_top_x: 20
+rnd_seed: timestamp
+save_rnd_lists: false
+set_max: 500
+set_min: 15
+zip_report: false
+gui: false
+viewer: /gsea?data=
+user_id: jasiedu
