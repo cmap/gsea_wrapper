@@ -166,7 +166,7 @@ public class ClueGsea {
             System.out.println("Could not find config file: " + configFile);
             System.exit(1);
         }
-        System.out.println("Could config file found: " + configFile);
+        System.out.println("Config file found: " + configFile);
 
         final File outputDirectory = new File(args[1]);
         outputDirectory.mkdirs();

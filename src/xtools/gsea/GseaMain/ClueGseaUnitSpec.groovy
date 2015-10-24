@@ -9,6 +9,7 @@ import spock.lang.Unroll
  */
 @Unroll
 class ClueGseaUnitSpec extends spock.lang.Specification {
+    String test = "https://s3.amazonaws.com/data.lincscloud.org/api/jasiedu%40broadinstitute.org/results/Oct21/my_analysis.sig_gsea_tool.job1445480127198/config.yaml"
     @Shared
     private String originalFileName = new File("my_gsea_13343254").getAbsolutePath();
     @Shared

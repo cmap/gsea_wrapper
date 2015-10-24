@@ -1,0 +1,39 @@
+Follow instructions below to build a docker container for gsea.
+
+1. Copy ../lib/gsea2-2.2.0.jar to the current directory
+
+2. Execute ./docker_build.sh to build the container locally.
+container will be called cmap/gsea
+
+3. To run the container:
+
+a)First create a directory where you want gsea to output the results. Lets assume it is called "output" and
+the path to it is /home/foo/output
+
+
+b)
+ i)If all of your input files are remote (they can be reached through http or ftp etc)
+then run
+
+docker run --name SOME_NAME -v $OUTPUT_DIR:/output -t cmap/gsea -res URL_TO_RES_FILE -cls URL_TO_CLS_FILE -gmx URL_TO_GMX_FILE -chip URL_TO_CHIP_FILE -out /output
+
+SOME_NAME is the name you would like to call the container instance. You can use it to stop, delete the container
+OUTPUT_DIR is the directory you created in 3a) above
+
+ii)
+If your files are all local,
+create a folder anywhere on the file system.
+
+Lets assume the folder is called "gsea" and the path to it is:
+"/home/foo/gsea"
+
+Place all of your files in this folder (cls, res, chip, gmx files).
+Lets assume your cls file is Diabetes.cls
+your res file is Diabetes_collapsed_symbols.gct
+your gmx file is msigdb_for_cmap_09_21_15.gmt
+and your chip file is HG_U133A.chip
+
+run docker as follows:
+
+docker run --name SOME_NAME -v /home/foo/gsea:/data -v $OUTPUT_DIR:/output -t cmap/gsea -res /data/Diabetes_collapsed_symbols.gct -cls /data/Diabetes.cls -gmx /data/msigdb_for_cmap_09_21_15.gmt -chip /data/HG_U133A.chip -out /output
+
